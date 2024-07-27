@@ -30,6 +30,10 @@ io.on("connection", (socket) => {
     // console.log(data);
     socket.to(data.room).emit("receiveMsg", data.message);
   });
+  socket.on("joinRoom", (room) => {
+    socket.join(room);
+    console.log(`user joind room ${room}`);
+  });
 });
 
 server.listen(port, () => {
